@@ -1,0 +1,84 @@
+﻿@model MVC_CRUD_Personal_Imagen.Models.PersonalModel
+
+@{
+    ViewBag.Title = "CreatePersonal";
+}
+
+<h2>CreatePersonal</h2>
+
+@using (Html.BeginForm("CreatePersonal","Personal", FormMethod.Post, 
+                        new { enctype ="multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Personal</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @*
+        <div class="form-group">
+            @Html.LabelFor(model => model.codper, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.codper, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.codper, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    *@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.nomper, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nomper, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nomper, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fecing, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fecing, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fecing, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.sueper, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.sueper, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.sueper, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.fotoper, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <!--
+                <input type="file" name="fper" value="" />
+            -->
+
+            @Html.TextBox("fper", "", new { type = "file" })
+
+            @Html.ValidationMessageFor(model => model.fotoper, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Grabar Personal" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar", "IndexPersonal",
+                             null, new { @class = "btn btn-warning" })
+        </div>
+    </div>
+</div>
+}
+<br/>
+<div class="alert alert-danger">
+    <p>
+        @ViewBag.MENSAJE
+    </p>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

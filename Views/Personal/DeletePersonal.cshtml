@@ -1,0 +1,95 @@
+﻿@model MVC_CRUD_Personal_Imagen.Models.PersonalModel
+
+@{
+    ViewBag.Title = "DeletePersonal";
+}
+
+<h2>DeletePersonal</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PersonalModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fotoper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fotoper)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="hidden" name="eliminar" id="eliminar" value="" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" 
+                   onclick="ConfirmarEliminar()"/> |
+            @Html.ActionLink("Back to List", "IndexPersonal",
+                                null, new {@class="btn btn-warning"})
+        </div>
+    }
+</div>
+
+<br />
+<<div class="alert alert-danger">
+
+  <p>
+
+    @ViewBag.MENSAJE
+
+  </p>
+
+</div>
+<br />
+<script>
+
+    function ConfirmarEliminar() {
+        if (confirm("Estas seguro de Eliminar al Personal?") == true) {
+
+            document.getElementById("eliminar").value = "si";
+
+        }
+        else {
+            document.getElementById("eliminar").value = "no";
+        }
+
+    }
+
+
+</script>

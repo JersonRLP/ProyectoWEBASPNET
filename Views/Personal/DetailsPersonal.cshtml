@@ -1,0 +1,59 @@
+﻿@model MVC_CRUD_Personal_Imagen.Models.PersonalModel
+
+@{
+    ViewBag.Title = "DetailsPersonal";
+}
+
+<h2>DetailsPersonal</h2>
+
+<div>
+    <h4>PersonalModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fotoper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fotoper)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Regresar", "IndexPersonal",
+                                null,new {@class="btn btn-danger"})
+</p>

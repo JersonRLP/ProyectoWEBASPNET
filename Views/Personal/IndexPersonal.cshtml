@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MVC_CRUD_Personal_Imagen.Models.pa_listar_PersonalModel>
+
+@{
+    ViewBag.Title = "IndexPersonal";
+}
+
+
+<h2>IndexPersonal</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Personal", "CreatePersonal",
+                     null, new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sueper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fotoper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.antiguedad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.acumulado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sueper)
+
+        </td>
+        <td>
+            <!-- Agregar un control html img al cual le enviaremos la ruta de la foto: fotoper -->
+            @if (!string.IsNullOrEmpty(item.fotoper))
+            {
+                <img src="@Url.Content(item.fotoper)" alt="@item.nomper" style="width:80px; height:80px;" />
+            }
+            else
+            {
+                <!-- Mostrar una imagen predeterminada o un marcador de posición -->
+                <img src="ruta_imagen_predeterminada.jpg" alt="Imagen no disponible" style="width:80px; height:80px;" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.antiguedad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.acumulado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalle", "DetailsPersonal",
+                                                new { id=item.codper }, new {@class="btn btn-danger"}) |
+            @Html.ActionLink("Eliminar", "DeletePersonal", new { id=item.codper }, new {@class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>
